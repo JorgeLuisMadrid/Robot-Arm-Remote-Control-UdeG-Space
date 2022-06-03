@@ -28,6 +28,16 @@ int it6=30;         //Posición inicial Pinza (abierta)
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);       //Declaración de comunicación serial
+  pinMode(in1_Base,OUTPUT);
+  pinMode(in2_Base,OUTPUT);
+  pinMode(in1_Codo,OUTPUT);
+  pinMode(in2_Codo,OUTPUT);
+  pinMode(in3_Muneca,OUTPUT);
+  pinMode(in4_Muneca,OUTPUT);
+  pinMode(EN,OUTPUT);
+  digitalWrite(EN,HIGH);
+  pinMode(DIR,OUTPUT);
+  pinMode(PUL,OUTPUT);
   //Mano
   Servo_Mano.attach(11);
   //Pinza
