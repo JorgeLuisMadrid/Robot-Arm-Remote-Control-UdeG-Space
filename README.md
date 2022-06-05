@@ -2,6 +2,10 @@
 > This is the Mars Rover Robot Arm Control testing code created by UdeG Space members (2022)
 
 
-There are two ways to control the motors with the joystick:
-1. The `ArduinoRemoteControl.m` file **detect the joystick inputs and controls the Arduino outputs**.
-2. The `Transmitter_Joystick.m` file **detect the joystick inputs and send the serial data** to the `Receiver_Motors.ino` file that **controls the Arduino outputs**.
+There are three branches in this repository:
+1. The `main` branch **contains the ROS node implementation**.
+2. The `serialtest` branch **contains testing code for the arduino serial comunication and outputs response**.
+3. The `matlab` branch **contains two ways to test the joystick with the arduino**.
+
+## Main branch
+The `arm_node.ino` file is the subscriber node that recieves the serial messages from the **joy topic** and controls the arm motors.
