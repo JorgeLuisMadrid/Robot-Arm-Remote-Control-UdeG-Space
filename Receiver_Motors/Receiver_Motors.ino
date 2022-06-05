@@ -1,5 +1,5 @@
 //Luis Fernando Arellano Zaragoza 27/05/22
-//Modificado por: Jorge Luis Madrid Gómez 03/04/22
+//Modificado por: Jorge Luis Madrid Gómez 03/06/22
 //UdeG Space
 #include <Servo.h>
 byte data[6];
