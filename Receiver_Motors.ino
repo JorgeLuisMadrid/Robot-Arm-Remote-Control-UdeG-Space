@@ -50,68 +50,66 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if(Serial.available()>0){             //Lee la comunicación serial
-    Serial.readBytes(data,7);           //en bytes
-    //Motor Base
-    if(data[0]==49){                    //Boton Izquierda
-      digitalWrite(in1_Base, LOW);
-      digitalWrite(in2_Base, HIGH);
+  Serial.readBytes(data,7);           //en bytes
+  //Motor Base
+  if(data[0]==49){                    //Boton Izquierda
+    digitalWrite(in1_Base, LOW);
+    digitalWrite(in2_Base, HIGH);
+  }
+  else if(data[0]==48){               //Boton Derecha
+    digitalWrite(in1_Base, HIGH);
+    digitalWrite(in2_Base, LOW);
+  }
+  else{
+    digitalWrite(in1_Base, LOW);
+    digitalWrite(in2_Base, LOW);
+  }
+  //Motor Hombro
+  if(data[1]==49){                    //Boton Arriba 
+    digitalWrite(DIR,HIGH);
+    for (int i=0; i<80; i++)   
+    {
+      digitalWrite(PUL,HIGH);
+      delayMicroseconds(600);
+      digitalWrite(PUL,LOW);
+      delayMicroseconds(600);
     }
-    else if(data[0]==48){               //Boton Derecha
-      digitalWrite(in1_Base, HIGH);
-      digitalWrite(in2_Base, LOW);
-    }
-    else{
-      digitalWrite(in1_Base, LOW);
-      digitalWrite(in2_Base, LOW);
-    }
-    //Motor Hombro
-    if(data[1]==49){                    //Boton Arriba 
-      digitalWrite(DIR,HIGH);
-      for (int i=0; i<80; i++)   
-      {
-        digitalWrite(PUL,HIGH);
-        delayMicroseconds(600);
-        digitalWrite(PUL,LOW);
-        delayMicroseconds(600);
-      }
-    }
-    if(data[1]==48){               //Boton Abajo
-      digitalWrite(DIR,LOW);
-      for (int i=0; i<80; i++) 
-      {
-        digitalWrite(PUL,HIGH);
-        delayMicroseconds(600);
-        digitalWrite(PUL,LOW);
-        delayMicroseconds(600);
-      }  
-    } 
-    //Motor codo
-    if(data[2]==49){               //Boton Arriba
-      digitalWrite(in1_Codo, LOW);
-      digitalWrite(in2_Codo, HIGH);       
-    }
-    else if(data[2]==48){               //Boton Abajo
-      digitalWrite(in1_Codo, HIGH);
-      digitalWrite(in2_Codo, LOW);          
-    }
-    else{
-      digitalWrite(in1_Codo, LOW);
-      digitalWrite(in2_Codo, LOW); 
-    }
-    //Motor Muñeca
-    if(data[3]==49){               //Boton Arriba 
-      digitalWrite(in3_Muneca, LOW);
-      digitalWrite(in4_Muneca, HIGH);        
-    }
-    else if(data[3]==48){               //Boton Abajo
-      digitalWrite(in3_Muneca, HIGH);
-      digitalWrite(in4_Muneca, LOW);        
-    }
-    else{
-      digitalWrite(in3_Muneca, LOW);
-      digitalWrite(in4_Muneca, LOW);  
-    }
+  }
+  if(data[1]==48){               //Boton Abajo
+    digitalWrite(DIR,LOW);
+    for (int i=0; i<80; i++) 
+    {
+      digitalWrite(PUL,HIGH);
+      delayMicroseconds(600);
+      digitalWrite(PUL,LOW);
+      delayMicroseconds(600);
+    }  
+  } 
+  //Motor codo
+  if(data[2]==49){               //Boton Arriba
+    digitalWrite(in1_Codo, LOW);
+    digitalWrite(in2_Codo, HIGH);       
+  }
+  else if(data[2]==48){               //Boton Abajo
+    digitalWrite(in1_Codo, HIGH);
+    digitalWrite(in2_Codo, LOW);          
+  }
+  else{
+    digitalWrite(in1_Codo, LOW);
+    digitalWrite(in2_Codo, LOW); 
+  }
+  //Motor Muñeca
+  if(data[3]==49){               //Boton Arriba 
+    digitalWrite(in3_Muneca, LOW);
+    digitalWrite(in4_Muneca, HIGH);        
+  }
+  else if(data[3]==48){               //Boton Abajo
+    digitalWrite(in3_Muneca, HIGH);
+    digitalWrite(in4_Muneca, LOW);        
+  }
+  else{
+    digitalWrite(in3_Muneca, LOW);
+    digitalWrite(in4_Muneca, LOW);  
   }
   //Motor Mano
   if(data[4]==49){               //Boton izquierda
