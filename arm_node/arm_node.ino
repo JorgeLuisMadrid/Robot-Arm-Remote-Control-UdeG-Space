@@ -1,6 +1,7 @@
 //Jorge Luis Madrid Gómez 05/06/22
 //UdeG Space
 #include <ros.h>
+#include <Arduino.h>
 #include <sensor_msgs/Joy.h>
 #include <Servo.h>
 
