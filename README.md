@@ -9,3 +9,5 @@ There are three branches in this repository:
 
 ## Main branch
 The `arm_node.ino` file is the subscriber node that recieves the serial messages from the **joy topic** and controls the arm motors.
+
+The `arm_launch.launch` file is the ROS launch with all the necesary nodes (**joy_node** and **rosserial**).
