@@ -31,12 +31,12 @@ int it6=30;         //Posición inicial Pinza (abierta)
 void joyControls( const sensor_msgs::Joy &msg){
   //Motor Base (Articulación 1)
   if(msg.axes[2]<=-0.5){          //Movimiento hacia la izquierda
-    digitalWrite(in1_Base, LOW);
-    digitalWrite(in2_Base, HIGH);
-  }
-  else if(msg.axes[2]>=0.5){      //Movimiento hacia la derecha
     digitalWrite(in1_Base, HIGH);
     digitalWrite(in2_Base, LOW);
+  }
+  else if(msg.axes[2]>=0.5){      //Movimiento hacia la derecha
+    digitalWrite(in1_Base, LOW);
+    digitalWrite(in2_Base, HIGH);
   }
   else{                           //Sin movimiento
     digitalWrite(in1_Base, LOW);
@@ -44,7 +44,7 @@ void joyControls( const sensor_msgs::Joy &msg){
   }
   //Motor Hombro (Articulación 2)
   if(msg.axes[1]<=-0.5){          //Movimiento hacia abajo
-    digitalWrite(DIR,HIGH);
+    digitalWrite(DIR,LOW);
     for (int i=0; i<80; i++)   
     {
       digitalWrite(PUL,HIGH);
@@ -54,7 +54,7 @@ void joyControls( const sensor_msgs::Joy &msg){
     }
   }
   else if(msg.axes[1]>=0.5){      //Movimiento hacia arriba
-    digitalWrite(DIR,LOW);
+    digitalWrite(DIR,HIGH);
     for (int i=0; i<80; i++) 
     {
       digitalWrite(PUL,HIGH);
